@@ -16,7 +16,7 @@ export default function AdminLogin({ onAuth }: AdminLoginProps) {
 
     try {
       const res = await fetch(
-        'https://g5r62apb6syarmksjcnzsktiuq0vnfvi.lambda-url.us-east-1.on.aws/',
+        'https://iick2ylt4ksmw4hwwdhyuxhyva0egqkt.lambda-url.us-east-1.on.aws/',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
