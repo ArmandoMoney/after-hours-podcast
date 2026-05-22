@@ -126,7 +126,7 @@ export default function LandingPage({ onApply }: LandingPageProps) {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center py-12">
-          <img src={LOGO_URL} alt="After Hours Podcast" className="h-44 sm:h-56 md:h-72 lg:h-80 w-auto mx-auto mb-4 animate-float relative left-[45px]" style={{ animationDelay: '0.1s' }} />
+          <img src={LOGO_URL} alt="After Hours Podcast" className="h-44 sm:h-56 md:h-72 lg:h-80 w-auto mx-auto mb-4 animate-float relative left-[20px]" style={{ animationDelay: '0.1s' }} />
           <p className="text-[#999999] text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
             Unfiltered conversations with the world's most interesting people. New episodes daily.
           </p>
