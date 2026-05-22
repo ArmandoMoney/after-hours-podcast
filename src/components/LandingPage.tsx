@@ -118,19 +118,19 @@ export default function LandingPage({ onApply }: LandingPageProps) {
   return (
     <div className="relative z-10">
       {/* HERO */}
-      <section className="relative min-h-[70svh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={HERO_BG_URL} alt="After Hours podcast studio" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: 'rgba(10,10,10,0.75)' }} />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center py-12">
-          <img src={LOGO_URL} alt="After Hours Podcast" className="h-44 sm:h-56 md:h-72 lg:h-80 w-auto mx-auto mb-4 animate-float" style={{ animationDelay: '0.1s' }} />
-          <p className="text-[#999999] text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center py-20">
+          <img src={LOGO_URL} alt="After Hours Podcast" className="h-44 sm:h-56 md:h-72 lg:h-80 w-auto mx-auto mb-8 animate-float" style={{ animationDelay: '0.1s' }} />
+          <p className="text-[#999999] text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-12 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
             Unfiltered conversations with the world's most interesting people. New episodes daily.
           </p>
-          <div ref={statsRef} className="flex flex-wrap justify-center gap-6 sm:gap-10 text-center animate-fadeIn" style={{ animationDelay: '0.5s' }}>
+          <div ref={statsRef} className="flex flex-wrap justify-center gap-8 sm:gap-14 text-center animate-fadeIn" style={{ animationDelay: '0.5s' }}>
             {STATS.map((stat) => (
               <div key={stat.label}>
                 <p className="font-display text-2xl sm:text-3xl text-gradient-gold"><AnimatedNumber value={stat.value} visible={statsVisible} /></p>
