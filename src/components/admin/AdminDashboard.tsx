@@ -197,10 +197,10 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
           <div className="flex items-center gap-4">
             <img
               src="https://qcmkvxym51.ufs.sh/f/dwov31m0cIp82UZKkVuje8HKUVFmQABviX9nuTsJazGrcdLg"
-              alt="CEO Media"
+              alt="After Hours"
               className="h-14 rounded-xl object-contain"
             />
-            <h1 className="text-xl font-semibold tracking-wide">Applications Dashboard</h1>
+            <h1 className="text-xl font-semibold tracking-wide">After Hours Dashboard</h1>
           </div>
           <button
             onClick={onSignOut}

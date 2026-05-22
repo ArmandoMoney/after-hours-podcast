@@ -60,7 +60,16 @@ export default function SubmissionDetail({ submission, onStatusChange, onDelete 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <p className="text-xs text-[#999999] uppercase tracking-wider mb-1">Full Name</p>
-          <p className="text-white">{submission.full_name}</p>
+          <div className="flex items-center gap-2">
+            <p className="text-white">{submission.full_name}</p>
+            <button
+              onClick={() => copyToClipboard(submission.full_name, 'name')}
+              className="text-xs px-2 py-1 rounded-lg border border-[#2A2A2A] text-[#999999]
+                         hover:text-white hover:border-white/30 transition-colors"
+            >
+              {copiedField === 'name' ? 'Copied!' : 'Copy'}
+            </button>
+          </div>
         </div>
         <div>
           <p className="text-xs text-[#999999] uppercase tracking-wider mb-1">Email</p>
@@ -98,7 +107,10 @@ export default function SubmissionDetail({ submission, onStatusChange, onDelete 
         </div>
         <div>
           <p className="text-xs text-[#999999] uppercase tracking-wider mb-1">Consent</p>
-          <p className="text-white">{submission.consent ? 'Yes' : 'No'}</p>
+          <div className="flex items-center gap-2">
+            <span className={`w-2 h-2 rounded-full ${submission.consent ? 'bg-green-400' : 'bg-red-400'}`} />
+            <p className="text-white">{submission.consent ? 'Yes' : 'No'}</p>
+          </div>
         </div>
         <div>
           <p className="text-xs text-[#999999] uppercase tracking-wider mb-1">Status</p>

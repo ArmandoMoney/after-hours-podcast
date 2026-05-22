@@ -107,8 +107,15 @@ export default function ApplicationPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white">
-      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20 max-w-2xl">
+    <div className="min-h-screen bg-[#0A0A0A] text-white relative">
+      <div className="absolute top-0 left-0 right-0 z-50">
+        <div className="container mx-auto px-4 sm:px-6 py-4">
+          <a href="/apply" className="text-sm text-[#999999] hover:text-white transition-colors">
+            &larr; Back
+          </a>
+        </div>
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 pt-16 pb-12 sm:pb-20 max-w-2xl">
 
         <div className="text-center mb-10">
           <img src={LOGO_URL} alt="After Hours" className="h-12 sm:h-16 w-auto mx-auto mb-6 rounded-2xl" />
