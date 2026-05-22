@@ -1,9 +1,8 @@
-PROJECT: CEO Media Agency — After Hours Podcast Landing Site
+PROJECT: After Hours Podcast — Podcast Landing & Guest Application Site
 TECH STACK:
 - React + Vite + TypeScript + Tailwind CSS
 - Bolt Cloud PostgreSQL database (Supabase under the hood, managed by Bolt)
-- React Router DOM for routing (/, /privacy, /admin)
-- Hosted on Netlify (ceomedia.netlify.app)
+- React Router DOM for routing (/, /apply, /privacy, /admin)
 - n8n webhook for submission notifications
 - AWS Lambda for admin authentication
 
@@ -17,59 +16,84 @@ DESIGN RULES (NEVER DEVIATE):
 - Section separators: border-t with subtle gold glow (border-gold-glow class)
 - CTA buttons: gold gradient background (#C9A84C → #E8D48B), black text, rounded-xl, all caps, tracking-wider, font-bold (btn-gold class)
 - Secondary buttons: outline style with gold border, white text (btn-outline-gold class)
-- Cards: bg-[#0D0D0F], border-gold-glow, rounded-2xl, hover effects (scale + shadow)
+- Cards: bg-[#0D0D0F], border-gold-glow, rounded-2xl, hover effects (hover-lift + shadow)
 - Inputs: background #141414, border #2A2A2A, focus glow with subtle white/silver
 - Rounded corners: 12px on cards/inputs/buttons
 - No nav bar on the landing page
 - Max content width: 1200px (max-w-6xl) for landing sections, 640px for questionnaire
+- All CEO Media logos should have rounded edges (rounded-2xl on large, rounded-lg on small)
 
-LANDING PAGE STRUCTURE (replicates digitalsocialhour.com layout exactly):
-1. HERO — full-bleed background image with dark overlay + gradient fade, centered logo, subtitle, 3 stats row
-2. BE A GUEST — flex row (image left, text right, stacks on mobile), H2 + body text + Apply CTA button
-3. TOP EPISODES — centered H2 + subtitle, 3-column video card grid (9 cards), each with thumbnail + hover play overlay + guest name + episode title
-4. SPONSOR THE SHOW — same flex layout as Be a Guest (image left, text right), H2 + body text + 2 buttons (outline + filled)
+PURPOSE:
+After Hours is Fresh's (Walter Weekes) podcast. The site replicates the digitalsocialhour.com structure to promote the podcast, attract sponsored guests, and collect guest applications. The podcast features entrepreneurs, creators, and thought leaders. Fresh is the host, and Brett manages the business side.
+
+ANIMATIONS & VISUAL POLISH:
+- Scroll-triggered reveal animations on all sections (useScrollReveal hook in src/hooks/useScrollReveal.ts)
+- CSS classes: .reveal, .reveal.visible, .reveal-delay-1 through .reveal-delay-6
+- Hero entrance: animate-float on logo, animate-fadeInUp on text, animate-fadeIn on stats
+- Animated stat counters: AnimatedNumber component counts from 0 to target value
+- Enhanced hover: btn-gold scales 1.03 + gold glow, .hover-lift adds -4px translateY, .guest-hover removes grayscale on portraits
+- FAQ accordion with openFaq state and .faq-answer CSS transitions
+
+HOMEPAGE STRUCTURE (LandingPage.tsx):
+1. HERO — full-bleed background image with dark overlay + gradient fade, floating logo (animate-float), subtitle, 3 animated stats row
+2. BE A GUEST — flex row (Fresh image in stadium shape left, text right), H2 + body text + Apply CTA → navigates to /apply
+3. TOP EPISODES — centered H2 + subtitle, 3-column video card grid (9 cards) with staggered reveal + hover-lift
+4. SPONSOR THE SHOW — same flex layout as Be a Guest (logo left, text right), H2 + 2 buttons
 5. AWARD — centered social proof image
-6. FOOTER — logo + nav links row, platform buttons row (YouTube/Spotify/Apple Podcasts), copyright
+6. FOOTER — logo + nav links, platform buttons (YouTube/Spotify/Apple Podcasts), copyright
+
+APPLY PAGE STRUCTURE (ApplyPage.tsx at /apply):
+1. TOP NAV — logo left, "← Home" link right
+2. HERO — massive headline with gold gradient key words, subtitle, scarcity line, two CTA buttons
+3. STATS BAR — 4 animated stat counters (border-y separator)
+4. RANKINGS — 4 cards in 2x2 grid showing platform rankings
+5. PAST GUESTS — circular grayscale portraits in 6-col grid (guest-hover for color on hover)
+6. WHY SPONSOR — 6 benefit cards in 2-col grid with icons (hover-lift)
+7. MID-PAGE CTA — centered Apply button
+8. MASTERMIND COMMUNITY — chat icon + heading + 2 community description cards
+9. SPONSORSHIP PACKAGES — 2 pricing tiers (Standard $12,500 / Premium $15,000) with feature lists
+10. GUEST TESTIMONIALS — 6 placeholder video cards with play buttons
+11. FAQ ACCORDION — 13 Q&A items with chevron toggle
+12. FINAL CTA — "YOUR SEAT IS WAITING" + Apply Now button
+13. FOOTER — logo, social links, legal links, disclaimer, copyright
+
+ROUTING:
+- / → App.tsx (homepage with FULL_LANDING flag → LandingPage or SimpleLandingHero)
+- /apply → ApplyPage.tsx (sales/application page)
+- /privacy → PrivacyPolicy.tsx
+- /admin → AdminLayout.tsx (dashboard)
+- /?apply=true → auto-starts questionnaire via App.tsx useEffect
 
 SECTION LAYOUT PATTERNS:
-- "Mascot sections" (Be a Guest, Sponsor): flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto. Image/logo container on left (w-44 sm:w-52 md:w-56 shrink-0), text content on right (flex-1, text-center md:text-left)
-- Sections with mascot/image have subtle bg overlay: absolute inset-0 bg-gradient-to-br from-[rgba(201,168,76,0.05)] via-transparent to-[rgba(232,212,139,0.05)]
-- Video cards: <a> with rounded-2xl, border-gold-glow, aspect-video image div + text div. Hover: image scale 105%, play button fades in, border brightens
+- Stadium/oblong image shape: rounded-full on non-square element (w-full h-auto) creates natural elongated rounded shape
+- "Mascot sections" (Be a Guest, Sponsor): flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto
+- Video cards: rounded-2xl, border-gold-glow, aspect-video image + text div, hover: scale 105% + play button
 - Stats: font-display text-gradient-gold for numbers, muted uppercase tracking-wider for labels
+- Staggered reveals: style={{ transitionDelay: `${i * 0.05}s` }} on mapped elements
 
 CODING STANDARDS:
 - TypeScript strict mode, functional components, React hooks
 - Tailwind utility classes, custom CSS only in index.css
 - All form validation client-side before database submission
-- Data arrays (EPISODES, STATS, etc.) as const arrays at top of file, rendered via .map()
+- Data arrays (EPISODES, STATS, PAST_GUESTS, BENEFITS, PACKAGES, FAQS, etc.) as const arrays at top of file, rendered via .map()
 
 MOBILE (PRIORITY):
 - Mobile-first responsive design
 - All touch targets minimum 44px
 - Video grid: 1 col mobile, 2 col sm, 3 col lg
+- Past guests: 3 col mobile, 6 col md+
 - Mascot sections: stack vertically on mobile, side-by-side on md+
+- Stadium image shape: use max-h-44 sm:max-h-48 md:max-h-56 to keep proportions consistent
 
 EXISTING FUNCTIONALITY (DO NOT BREAK):
-- Questionnaire: 3-step form with phone auto-format (Questionnaire.tsx, StepAboutYou.tsx, StepYourBusiness.tsx, StepYourSocials.tsx)
+- Questionnaire: 3-step form with phone auto-format
 - Supabase submissions table with phone column
-- n8n webhook (mgxossarmy.app.n8n.cloud/webhook/ceomedia-submission)
+- n8n webhook for submission notifications
 - Admin dashboard at /admin with Lambda auth
 - FULL_LANDING feature flag in App.tsx
 - SimpleLandingHero.tsx as fallback
 - Privacy Policy at /privacy
-- ThankYou.tsx confirmation screen
-- ProgressIndicator.tsx step indicators
-- CursorGlow.tsx cursor effect
-
-APPLY PAGE (/apply route):
-- ApplyPage.tsx is a separate page component at /apply
-- Replicates digitalsocialhour.com/apply layout with our gold branding
-- "Apply Now" buttons navigate to /?apply=true which auto-starts the questionnaire
-- Sections in order: Top nav, Hero headline, Stats bar, Rankings grid, Past Guests, Why Sponsor benefits, Mid-page CTA, WhatsApp Mastermind, Sponsorship Packages, Guest Testimonials, Text testimonials, FAQ accordion, Final CTA, Closing image, Footer
-- Same design tokens as homepage (Bebas Neue, gold gradient, dark bg, border-gold-glow)
-- Past guests use same circular grayscale portrait grid pattern
-- FAQ uses same accordion pattern with openFaq state
 
 IMPORTANT:
 - ONLY modify files specified in the prompt
-- Do not modify: Questionnaire.tsx, StepAboutYou.tsx, StepYourBusiness.tsx, StepYourSocials.tsx, ThankYou.tsx, ProgressIndicator.tsx, admin/*, lib/supabase.ts, migrations, CursorGlow.tsx, SimpleLandingHero.tsx, App.tsx — unless explicitly told to
+- Do not modify: Questionnaire.tsx, StepAboutYou.tsx, StepYourBusiness.tsx, StepYourSocials.tsx, ThankYou.tsx, ProgressIndicator.tsx, admin/*, lib/supabase.ts, migrations, CursorGlow.tsx, SimpleLandingHero.tsx — unless explicitly told to
