@@ -162,7 +162,7 @@ export default function LandingPage({ onApply }: LandingPageProps) {
               <p className="text-[#999999] text-base sm:text-lg max-w-xl mb-6 sm:mb-8">
                 Join 2,000+ entrepreneurs, creators, and thought leaders who've built authority and deal flow by appearing on After Hours.
               </p>
-              <button onClick={() => window.location.href = '/apply'} className="btn-gold inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg">
+              <button onClick={() => window.location.href = '/application'} className="btn-gold inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg">
                 APPLY TO BE ON THE SHOW (TAKES 30 SECONDS)
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </button>
@@ -232,11 +232,11 @@ export default function LandingPage({ onApply }: LandingPageProps) {
                 Custom ad-reads, product placement, and live event activations.
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-                <button onClick={onApply} className="btn-outline-gold inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg border-2 border-[#C9A84C] text-white rounded-xl font-bold uppercase tracking-wider hover:bg-[rgba(201,168,76,0.1)] transition-all duration-300">
+                <button onClick={() => window.location.href = '/application'} className="btn-outline-gold inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg border-2 border-[#C9A84C] text-white rounded-xl font-bold uppercase tracking-wider hover:bg-[rgba(201,168,76,0.1)] transition-all duration-300">
                   PARTNER WITH US
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </button>
-                <button onClick={onApply} className="btn-gold inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg">
+                <button onClick={() => window.location.href = '/application'} className="btn-gold inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg">
                   EVENTS
                 </button>
               </div>

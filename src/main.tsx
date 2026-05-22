@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App.tsx';
 import ApplyPage from './components/ApplyPage.tsx';
+import ApplicationPage from './components/ApplicationPage.tsx';
 import AdminLayout from './components/admin/AdminLayout.tsx';
 import PrivacyPolicy from './components/PrivacyPolicy.tsx';
 import './index.css';
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/admin" element={<AdminLayout />} />
         <Route path="/apply" element={<ApplyPage />} />
+        <Route path="/application" element={<ApplicationPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

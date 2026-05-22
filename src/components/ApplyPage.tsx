@@ -172,7 +172,7 @@ export default function ApplyPage() {
   }, []);
 
   const handleApply = () => {
-    window.location.href = '/?apply=true';
+    window.location.href = '/application';
   };
 
   return (
