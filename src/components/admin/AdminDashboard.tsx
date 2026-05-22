@@ -7,15 +7,10 @@ interface Submission {
   id: string;
   full_name: string;
   email: string;
-  annual_revenue: string;
-  product_service: string;
-  creates_content: string;
-  instagram: string | null;
-  twitter: string | null;
-  tiktok: string | null;
-  youtube: string | null;
-  linkedin: string | null;
-  other_social: string | null;
+  phone: string;
+  business_name: string;
+  package_interest: string;
+  consent: boolean;
   submitted_at: string;
   status: string;
 }
@@ -24,24 +19,14 @@ interface AdminDashboardProps {
   onSignOut: () => void;
 }
 
-type SortField = 'full_name' | 'annual_revenue' | 'submitted_at' | 'status';
+type SortField = 'full_name' | 'package_interest' | 'submitted_at' | 'status';
 type SortDir = 'asc' | 'desc';
 
-const REVENUE_OPTIONS = [
-  'Under $100K',
-  '$100K \u2013 $500K',
-  '$500K \u2013 $1M',
-  '$1M \u2013 $5M',
-  '$5M \u2013 $10M',
-  '$10M+',
-];
-
-const CONTENT_OPTIONS = [
-  'Yes, regularly',
-  'Sometimes',
-  "No, but I'm interested in starting",
-  'No',
-];
+const PACKAGE_OPTIONS = ['standard', 'premium'];
+const PACKAGE_LABELS: Record<string, string> = {
+  standard: 'Standard - $12,500',
+  premium: 'Premium - $15,000',
+};
 
 const STATUS_OPTIONS = ['new', 'contacted', 'not_interested'];
 const STATUS_LABELS: Record<string, string> = {
@@ -90,8 +75,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
   const [stats, setStats] = useState({ total: 0, new: 0, contacted: 0, not_interested: 0 });
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
-  const [revenueFilter, setRevenueFilter] = useState('');
-  const [contentFilter, setContentFilter] = useState('');
+  const [packageFilter, setPackageFilter] = useState('');
   const [sortField, setSortField] = useState<SortField>('submitted_at');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [page, setPage] = useState(0);
@@ -100,23 +84,22 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
   const debounceRef = useRef<ReturnType<typeof setTimeout>>();
 
   const fetchStats = useCallback(async () => {
-    const { count: total } = await supabase.from('submissions').select('*', { count: 'exact', head: true });
-    const { count: newC } = await supabase.from('submissions').select('*', { count: 'exact', head: true }).eq('status', 'new');
-    const { count: contactedC } = await supabase.from('submissions').select('*', { count: 'exact', head: true }).eq('status', 'contacted');
-    const { count: notIntC } = await supabase.from('submissions').select('*', { count: 'exact', head: true }).eq('status', 'not_interested');
+    const { count: total } = await supabase.from('applications').select('*', { count: 'exact', head: true });
+    const { count: newC } = await supabase.from('applications').select('*', { count: 'exact', head: true }).eq('status', 'new');
+    const { count: contactedC } = await supabase.from('applications').select('*', { count: 'exact', head: true }).eq('status', 'contacted');
+    const { count: notIntC } = await supabase.from('applications').select('*', { count: 'exact', head: true }).eq('status', 'not_interested');
     setStats({ total: total || 0, new: newC || 0, contacted: contactedC || 0, not_interested: notIntC || 0 });
   }, []);
 
   const fetchSubmissions = useCallback(async () => {
     setLoading(true);
-    let query = supabase.from('submissions').select('*', { count: 'exact' });
+    let query = supabase.from('applications').select('*', { count: 'exact' });
 
     if (search) {
-      query = query.or(`full_name.ilike.%${search}%,email.ilike.%${search}%`);
+      query = query.or(`full_name.ilike.%${search}%,email.ilike.%${search}%,phone.ilike.%${search}%,business_name.ilike.%${search}%,package_interest.ilike.%${search}%`);
     }
     if (statusFilter) query = query.eq('status', statusFilter);
-    if (revenueFilter) query = query.eq('annual_revenue', revenueFilter);
-    if (contentFilter) query = query.eq('creates_content', contentFilter);
+    if (packageFilter) query = query.eq('package_interest', packageFilter);
 
     query = query.order(sortField, { ascending: sortDir === 'asc' });
 
@@ -128,7 +111,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
     setSubmissions(data || []);
     setTotalCount(count || 0);
     setLoading(false);
-  }, [search, statusFilter, revenueFilter, contentFilter, sortField, sortDir, page]);
+  }, [search, statusFilter, packageFilter, sortField, sortDir, page]);
 
   useEffect(() => {
     fetchStats();
@@ -140,8 +123,8 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
 
   useEffect(() => {
     const channel = supabase
-      .channel('submissions-realtime')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'submissions' }, () => {
+      .channel('applications-realtime')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'applications' }, () => {
         fetchSubmissions();
         fetchStats();
       })
@@ -185,7 +168,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
   }
 
   async function handleStatusChange(id: string, newStatus: string) {
-    await supabase.from('submissions').update({ status: newStatus }).eq('id', id);
+    await supabase.from('applications').update({ status: newStatus }).eq('id', id);
     setSubmissions((prev) =>
       prev.map((s) => (s.id === id ? { ...s, status: newStatus } : s))
     );
@@ -193,7 +176,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
   }
 
   async function handleDelete(id: string) {
-    await supabase.from('submissions').delete().eq('id', id);
+    await supabase.from('applications').delete().eq('id', id);
     setSubmissions((prev) => prev.filter((s) => s.id !== id));
     setExpandedId(null);
     fetchStats();
@@ -217,7 +200,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
               alt="CEO Media"
               className="h-14 rounded-xl object-contain"
             />
-            <h1 className="text-xl font-semibold tracking-wide">Submissions Dashboard</h1>
+            <h1 className="text-xl font-semibold tracking-wide">Applications Dashboard</h1>
           </div>
           <button
             onClick={onSignOut}
@@ -242,7 +225,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
         <div className="flex flex-col md:flex-row gap-3">
           <input
             type="text"
-            placeholder="Search by name or email..."
+            placeholder="Search by name, email, phone, or business..."
             onChange={(e) => handleSearchChange(e.target.value)}
             className="flex-1 px-4 py-3 bg-[#141414] border border-[#2A2A2A] rounded-xl text-white
                        placeholder:text-[#999999] focus:outline-none focus:ring-2 focus:ring-white/20
@@ -260,25 +243,14 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
             ))}
           </select>
           <select
-            value={revenueFilter}
-            onChange={(e) => { setRevenueFilter(e.target.value); setPage(0); }}
+            value={packageFilter}
+            onChange={(e) => { setPackageFilter(e.target.value); setPage(0); }}
             className="px-4 py-3 bg-[#141414] border border-[#2A2A2A] rounded-xl text-white
                        focus:outline-none focus:ring-2 focus:ring-white/20"
           >
-            <option value="">All Revenue</option>
-            {REVENUE_OPTIONS.map((r) => (
-              <option key={r} value={r}>{r}</option>
-            ))}
-          </select>
-          <select
-            value={contentFilter}
-            onChange={(e) => { setContentFilter(e.target.value); setPage(0); }}
-            className="px-4 py-3 bg-[#141414] border border-[#2A2A2A] rounded-xl text-white
-                       focus:outline-none focus:ring-2 focus:ring-white/20"
-          >
-            <option value="">All Content</option>
-            {CONTENT_OPTIONS.map((c) => (
-              <option key={c} value={c}>{c}</option>
+            <option value="">All Packages</option>
+            {PACKAGE_OPTIONS.map((p) => (
+              <option key={p} value={p}>{PACKAGE_LABELS[p]}</option>
             ))}
           </select>
         </div>
@@ -292,11 +264,11 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
                   Name<SortArrow field="full_name" />
                 </th>
                 <th className="pb-3 pr-4 font-medium">Email</th>
-                <th className="pb-3 pr-4 font-medium cursor-pointer select-none" onClick={() => handleSort('annual_revenue')}>
-                  Revenue<SortArrow field="annual_revenue" />
+                <th className="pb-3 pr-4 font-medium">Phone</th>
+                <th className="pb-3 pr-4 font-medium">Business</th>
+                <th className="pb-3 pr-4 font-medium cursor-pointer select-none" onClick={() => handleSort('package_interest')}>
+                  Package<SortArrow field="package_interest" />
                 </th>
-                <th className="pb-3 pr-4 font-medium">Product/Service</th>
-                <th className="pb-3 pr-4 font-medium">Content</th>
                 <th className="pb-3 pr-4 font-medium cursor-pointer select-none" onClick={() => handleSort('status')}>
                   Status<SortArrow field="status" />
                 </th>
@@ -345,7 +317,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
           </div>
         )}
         {!loading && submissions.length === 0 && (
-          <p className="text-center text-[#999999] py-12">No submissions yet.</p>
+          <p className="text-center text-[#999999] py-12">No applications yet.</p>
         )}
 
         {/* Pagination */}
@@ -402,9 +374,9 @@ function TableRow({
       >
         <td className="py-3 pr-4 text-white">{submission.full_name}</td>
         <td className="py-3 pr-4 text-[#E5E5E5]">{submission.email}</td>
-        <td className="py-3 pr-4 text-[#E5E5E5]">{submission.annual_revenue}</td>
-        <td className="py-3 pr-4 text-[#E5E5E5] max-w-[200px] truncate">{submission.product_service}</td>
-        <td className="py-3 pr-4 text-[#E5E5E5]">{submission.creates_content}</td>
+        <td className="py-3 pr-4 text-[#E5E5E5]">{submission.phone}</td>
+        <td className="py-3 pr-4 text-[#E5E5E5] max-w-[200px] truncate">{submission.business_name}</td>
+        <td className="py-3 pr-4 text-[#E5E5E5] capitalize">{submission.package_interest}</td>
         <td className="py-3 pr-4">
           <StatusBadge status={submission.status} onClick={onCycleStatus} />
         </td>
@@ -447,7 +419,7 @@ function MobileCard({
         </div>
         <p className="text-sm text-[#E5E5E5]">{submission.email}</p>
         <div className="flex items-center justify-between mt-2">
-          <p className="text-xs text-[#999999]">{submission.annual_revenue}</p>
+          <p className="text-xs text-[#999999] capitalize">{submission.package_interest}</p>
           <p className="text-xs text-[#999999]">{relativeTime(submission.submitted_at)}</p>
         </div>
       </div>
