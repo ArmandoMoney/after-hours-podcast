@@ -7,9 +7,9 @@ export default function SimpleLandingHero({ onApply }: SimpleLandingHeroProps) {
     <div className="flex items-center justify-center min-h-[100dvh] px-6">
       <div className="flex flex-col items-center text-center">
         <img
-          src="https://qcmkvxym51.ufs.sh/f/dwov31m0cIp82UZKkVuje8HKUVFmQABviX9nuTsJazGrcdLg"
-          alt="CEO Media"
-          className="h-16 md:h-20 object-contain rounded-2xl opacity-0 anim-logo"
+          src="https://9tuqy0mn23.ufs.sh/f/Ck56V993keuOTsuJByNp3Mmv4ukxatX8qZAVOCbsfeQj0FW7"
+          alt="After Hours Podcast"
+          className="h-16 md:h-20 object-contain opacity-0 anim-logo"
         />
 
         <h1 className="mt-10 text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-wide leading-tight opacity-0 anim-heading">
@@ -17,7 +17,7 @@ export default function SimpleLandingHero({ onApply }: SimpleLandingHeroProps) {
         </h1>
 
         <p className="mt-6 text-lg text-brand-muted max-w-[500px] leading-relaxed opacity-0 anim-subtext">
-          CEO Media partners with industry leaders to scale personal brands, build digital empires, and unlock multi-million dollar growth.
+          After Hours Podcast — unfiltered conversations with the world's most interesting people.
         </p>
 
         <button

@@ -512,8 +512,7 @@ export default function ApplyPage() {
             </div>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
               <a href="/privacy" className="text-[#999999] hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="text-[#999999] hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="text-[#999999] hover:text-white transition-colors">Contact Us</a>
+              <a href="/terms" className="text-[#999999] hover:text-white transition-colors">Terms of Service</a>
             </div>
           </div>
           <p className="text-[#666666] text-[9px] sm:text-[10px] mt-8 text-center leading-relaxed max-w-5xl mx-auto">

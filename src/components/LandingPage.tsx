@@ -263,8 +263,7 @@ export default function LandingPage({ onApply }: LandingPageProps) {
             <img src={LOGO_URL} alt="After Hours Podcast" className="h-14 sm:h-16 w-auto" />
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#999999]">
               <a href="/privacy" className="hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors">Contact</a>
+              <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
             </div>
           </div>
 

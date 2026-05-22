@@ -6,6 +6,7 @@ import ApplyPage from './components/ApplyPage.tsx';
 import ApplicationPage from './components/ApplicationPage.tsx';
 import AdminLayout from './components/admin/AdminLayout.tsx';
 import PrivacyPolicy from './components/PrivacyPolicy.tsx';
+import TermsOfService from './components/TermsOfService.tsx';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
         <Route path="/admin" element={<AdminLayout />} />
         <Route path="/apply" element={<ApplyPage />} />
         <Route path="/application" element={<ApplicationPage />} />

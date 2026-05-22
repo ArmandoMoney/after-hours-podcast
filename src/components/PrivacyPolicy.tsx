@@ -13,37 +13,36 @@ export default function PrivacyPolicy() {
       <div className="max-w-[800px] mx-auto px-6 py-16 md:py-24">
         <button onClick={() => navigate('/')} className="inline-flex items-center gap-3 mb-16">
           <img
-            src="https://qcmkvxym51.ufs.sh/f/dwov31m0cIp82UZKkVuje8HKUVFmQABviX9nuTsJazGrcdLg"
-            alt="CEO Media"
-            className="h-12 rounded-xl"
+            src="https://9tuqy0mn23.ufs.sh/f/Ck56V993keuOTsuJByNp3Mmv4ukxatX8qZAVOCbsfeQj0FW7"
+            alt="After Hours Podcast"
+            className="h-12"
           />
-          <span className="text-base font-medium text-white">CEO Media</span>
+          <span className="text-base font-medium text-gradient-gold">After Hours Podcast</span>
         </button>
 
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">Privacy Policy</h1>
-        <p className="text-sm text-brand-muted mb-12">Last updated: May 2026</p>
+        <h1 className="font-display text-3xl md:text-4xl text-white mb-2">PRIVACY <span className="text-gradient-gold">POLICY</span></h1>
+        <p className="text-sm text-[#999999] mb-12">Last updated: May 2026</p>
 
         <div className="space-y-0">
           <Section title="Introduction">
-            CEO Media ("we," "us," or "our") operates the CEO Media website and related services.
-            This Privacy Policy explains how we collect, use, disclose, and safeguard your information
-            when you visit our website or submit an application through our intake form. By using our
-            site, you consent to the practices described in this policy.
+            After Hours Podcast ("we," "us," or "our") operates the After Hours Podcast website and
+            related services. This Privacy Policy explains how we collect, use, disclose, and
+            safeguard your information when you visit our website or submit an application through our
+            intake form. By using our site, you consent to the practices described in this policy.
           </Section>
 
           <Section title="Information We Collect">
-            When you submit an application through our questionnaire, we collect the following
-            information: your full name, email address, annual revenue range, product or service
-            description, content creation status, and social media handles (Instagram, X/Twitter,
-            TikTok, YouTube, LinkedIn, and any other platforms you provide). We do not collect
+            When you submit an application through our guest application form, we collect the
+            following information: your full name, email address, phone number, business or brand
+            name, package interest selection, and TCPA consent acknowledgment. We do not collect
             payment information through our website.
           </Section>
 
           <Section title="How We Use Your Information">
-            We use the information you provide to: evaluate your application for CEO Media's
-            services, contact you regarding your submission, understand the needs and interests of
-            potential clients, and improve our services and website experience. We do not sell,
-            trade, or rent your personal information to third parties.
+            We use the information you provide to: evaluate your application for a guest appearance
+            on After Hours Podcast, contact you regarding your submission, coordinate episode
+            scheduling and production logistics, and improve our services and website experience. We
+            do not sell, trade, or rent your personal information to third parties.
           </Section>
 
           <Section title="Data Storage & Security">
@@ -71,7 +70,7 @@ export default function PrivacyPolicy() {
             You have the right to: request access to the personal information we hold about you,
             request correction or deletion of your personal information, withdraw consent for us to
             process your data, and request that we restrict processing of your personal information.
-            To exercise any of these rights, contact us at the email below.
+            To exercise any of these rights, contact us through the channels below.
           </Section>
 
           <Section title="Data Retention">
@@ -97,13 +96,12 @@ export default function PrivacyPolicy() {
             you can reach us through our social channels:
           </Section>
           <div className="flex flex-wrap gap-4 mt-3">
-            <a href="https://instagram.com/secretorderlife" target="_blank" rel="noopener noreferrer" className="text-brand-gold hover:text-white transition-colors duration-200 text-sm">Instagram</a>
-            <a href="https://x.com/freshceonetwork" target="_blank" rel="noopener noreferrer" className="text-brand-gold hover:text-white transition-colors duration-200 text-sm">X / Twitter</a>
-            <a href="https://tiktok.com/@freshceonetwork" target="_blank" rel="noopener noreferrer" className="text-brand-gold hover:text-white transition-colors duration-200 text-sm">TikTok</a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-[#F5C45E] hover:text-white transition-colors duration-200 text-sm">Instagram</a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-[#F5C45E] hover:text-white transition-colors duration-200 text-sm">YouTube</a>
           </div>
         </div>
 
-        <button onClick={() => navigate('/')} className="text-sm text-brand-muted hover:text-white transition-colors duration-200 mt-16 inline-flex items-center gap-1">
+        <button onClick={() => navigate('/')} className="text-sm text-[#999999] hover:text-white transition-colors duration-200 mt-16 inline-flex items-center gap-1">
           &larr; Back to Home
         </button>
       </div>
@@ -114,8 +112,8 @@ export default function PrivacyPolicy() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="text-lg font-semibold text-white mb-3 mt-10">{title}</h2>
-      <p className="text-brand-body leading-relaxed text-sm md:text-base">{children}</p>
+      <h2 className="font-display text-lg font-semibold text-white mb-3 mt-10">{title}</h2>
+      <p className="text-[#E5E5E5] leading-relaxed text-sm md:text-base">{children}</p>
     </div>
   );
 }
