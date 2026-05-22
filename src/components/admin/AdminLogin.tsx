@@ -26,7 +26,7 @@ export default function AdminLogin({ onAuth }: AdminLoginProps) {
       const data = await res.json();
 
       if (data.success) {
-        sessionStorage.setItem('ceo_admin_auth', 'true');
+        sessionStorage.setItem('ah_admin_auth', 'true');
         onAuth();
       } else {
         setError('Invalid password.');
@@ -42,9 +42,9 @@ export default function AdminLogin({ onAuth }: AdminLoginProps) {
     <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-4">
       <form onSubmit={handleSubmit} className="w-full max-w-sm flex flex-col items-center">
         <img
-          src="https://qcmkvxym51.ufs.sh/f/dwov31m0cIp82UZKkVuje8HKUVFmQABviX9nuTsJazGrcdLg"
-          alt="CEO Media"
-          className="h-20 rounded-xl mb-10 object-contain opacity-0 anim-logo-fast"
+          src="https://9tuqy0mn23.ufs.sh/f/Ck56V993keuOTsuJByNp3Mmv4ukxatX8qZAVOCbsfeQj0FW7"
+          alt="After Hours Podcast"
+          className="h-20 mb-10 object-contain opacity-0 anim-logo-fast"
         />
         <h1
           className="text-2xl font-semibold text-white tracking-wide mb-8 opacity-0 anim-heading-fast"

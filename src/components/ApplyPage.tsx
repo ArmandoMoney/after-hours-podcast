@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-const LOGO_URL = 'https://qcmkvxym51.ufs.sh/f/dwov31m0cIp82UZKkVuje8HKUVFmQABviX9nuTsJazGrcdLg';
-const HERO_BG_URL = 'https://qcmkvxym51.ufs.sh/f/dwov31m0cIp8rSY5feVlDW9G8Q3cyMhJpa0nzUti2PTkE5Fj';
+const LOGO_URL = 'https://9tuqy0mn23.ufs.sh/f/Ck56V993keuOTsuJByNp3Mmv4ukxatX8qZAVOCbsfeQj0FW7';
+const HERO_BG_URL = 'https://9tuqy0mn23.ufs.sh/f/Ck56V993keuOTODQtJNp3Mmv4ukxatX8qZAVOCbsfeQj0FW7';
 
 const STATS = [
   { value: '296M+', label: 'MONTHLY IMPRESSIONS' },
@@ -31,7 +31,7 @@ const PAST_GUESTS = [
   { name: 'Dom Lucre', title: 'Journalist & Creator', image: 'https://qcmkvxym51.ufs.sh/f/dwov31m0cIp8jwqhsdxiX8tkPaZf2dCEKNTxBwRS1L6JDIph' },
   { name: 'Rampage Jackson', title: 'UFC Champion & Actor', image: 'https://qcmkvxym51.ufs.sh/f/dwov31m0cIp8jR7OHSiX8tkPaZf2dCEKNTxBwRS1L6JDIphH' },
   { name: '6ix9ine', title: 'Recording Artist', image: 'https://qcmkvxym51.ufs.sh/f/dwov31m0cIp83pU0BTg7Gdhf1azeqCUp8EvXgDO2x6ciFBIM' },
-  { name: 'Fresh', title: 'CEO Media Founder', image: 'https://qcmkvxym51.ufs.sh/f/dwov31m0cIp8fxOFPV29ueOnvHw4VjFsmKyYbcNMo3QiJSLA' },
+  { name: 'Fresh', title: 'After Hours Podcast Host', image: 'https://qcmkvxym51.ufs.sh/f/dwov31m0cIp8fxOFPV29ueOnvHw4VjFsmKyYbcNMo3QiJSLA' },
 ];
 
 const BENEFITS = [
@@ -181,7 +181,7 @@ export default function ApplyPage() {
       {/* TOP NAV */}
       <div className="absolute top-0 left-0 right-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <img src={LOGO_URL} alt="After Hours" className="h-8 sm:h-10 w-auto rounded-lg" />
+          <img src={LOGO_URL} alt="After Hours Podcast" className="h-8 sm:h-10 w-auto" />
           <a href="/" className="text-sm text-[#999999] hover:text-white transition-colors">
             &larr; Home
           </a>
@@ -204,7 +204,7 @@ export default function ApplyPage() {
           <p className="text-[#999999] text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-4 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
             For founders and CEOs who want authority, leads, and social proof without spending years building an audience.
           </p>
-          <p className="text-[#C9A84C] text-sm sm:text-base font-semibold mb-8 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
+          <p className="text-[#F5C45E] text-sm sm:text-base font-semibold mb-8 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
             We only film 4 sponsored guest episodes per month.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 animate-fadeIn" style={{ animationDelay: '0.5s' }}>
@@ -216,7 +216,7 @@ export default function ApplyPage() {
             </button>
             <a
               href="#packages"
-              className="inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg border-2 border-[#C9A84C] text-white rounded-xl font-bold uppercase tracking-wider hover:bg-[rgba(201,168,76,0.1)] transition-all duration-300 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg border-2 border-[#F5C45E] text-white rounded-xl font-bold uppercase tracking-wider hover:bg-[rgba(245,196,94,0.1)] transition-all duration-300 w-full sm:w-auto"
             >
               VIEW PACKAGES
             </a>
@@ -262,7 +262,7 @@ export default function ApplyPage() {
 
       {/* PAST GUESTS */}
       <section className="py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(201,168,76,0.03)] via-transparent to-[rgba(232,212,139,0.03)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(245,196,94,0.03)] via-transparent to-[rgba(232,212,139,0.03)]" />
         <div className="relative container mx-auto px-4 sm:px-6">
           <div className="reveal text-center mb-10 sm:mb-14">
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4">
@@ -300,7 +300,7 @@ export default function ApplyPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 max-w-5xl mx-auto">
             {BENEFITS.map((b, i) => (
               <div key={b.title} className="reveal hover-lift rounded-2xl border border-gold-glow bg-[#0D0D0F] p-6 sm:p-8" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <div className="w-12 h-12 rounded-xl bg-[rgba(201,168,76,0.1)] flex items-center justify-center text-[#C9A84C] mb-5" dangerouslySetInnerHTML={{ __html: b.icon }} />
+                <div className="w-12 h-12 rounded-xl bg-[rgba(245,196,94,0.1)] flex items-center justify-center text-[#F5C45E] mb-5" dangerouslySetInnerHTML={{ __html: b.icon }} />
                 <h3 className="font-display text-xl sm:text-2xl mb-3">{b.title}</h3>
                 <p className="text-[#999999] text-sm sm:text-base leading-relaxed">{b.description}</p>
               </div>
@@ -321,9 +321,9 @@ export default function ApplyPage() {
 
       {/* MASTERMIND COMMUNITY */}
       <section className="py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(201,168,76,0.03)] via-transparent to-[rgba(232,212,139,0.03)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(245,196,94,0.03)] via-transparent to-[rgba(232,212,139,0.03)]" />
         <div className="reveal relative container mx-auto px-4 sm:px-6 text-center">
-          <div className="text-[#C9A84C] mb-4">
+          <div className="text-[#F5C45E] mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4">
@@ -362,14 +362,14 @@ export default function ApplyPage() {
                 key={pkg.name}
                 className={`reveal hover-lift rounded-2xl border p-6 sm:p-8 flex flex-col ${
                   pkg.popular
-                    ? 'border-[#C9A84C] bg-[#0D0D0F] shadow-[0_0_30px_rgba(201,168,76,0.15)]'
+                    ? 'border-[#F5C45E] bg-[#0D0D0F] shadow-[0_0_30px_rgba(245,196,94,0.15)]'
                     : 'border-gold-glow bg-[#0D0D0F]'
                 }`}
                 style={{ transitionDelay: `${i * 0.15}s` }}
               >
                 {pkg.popular && (
                   <div className="text-center mb-4">
-                    <span className="inline-block px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[rgba(201,168,76,0.15)] text-[#C9A84C] border border-[#C9A84C]/30">
+                    <span className="inline-block px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[rgba(245,196,94,0.15)] text-[#F5C45E] border border-[#F5C45E]/30">
                       Most Popular
                     </span>
                   </div>
@@ -379,7 +379,7 @@ export default function ApplyPage() {
                 <ul className="space-y-3 mb-8 flex-1">
                   {pkg.features.map((f, fi) => (
                     <li key={fi} className="flex items-start gap-3 text-sm sm:text-base text-[#CCCCCC]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5C45E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
                       {f}
                     </li>
                   ))}
@@ -389,7 +389,7 @@ export default function ApplyPage() {
                   className={`w-full py-3 sm:py-4 rounded-xl font-bold uppercase tracking-wider text-base sm:text-lg transition-all duration-300 ${
                     pkg.popular
                       ? 'btn-gold'
-                      : 'border-2 border-[#C9A84C] text-white hover:bg-[rgba(201,168,76,0.1)]'
+                      : 'border-2 border-[#F5C45E] text-white hover:bg-[rgba(245,196,94,0.1)]'
                   }`}
                 >
                   APPLY NOW
@@ -399,7 +399,7 @@ export default function ApplyPage() {
           </div>
           {/* PREMIUM GUARANTEE */}
           <div className="mt-8 text-center">
-            <p className="inline-flex items-center gap-2 text-[#C9A84C] text-sm sm:text-base font-semibold">
+            <p className="inline-flex items-center gap-2 text-[#F5C45E] text-sm sm:text-base font-semibold">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
               PREMIUM GUARANTEE: If your clips don't hit 1,000,000+ total views, we keep distributing at no extra cost until they do.
             </p>
@@ -422,7 +422,7 @@ export default function ApplyPage() {
             {TESTIMONIALS.map((t, i) => (
               <div key={i} className="reveal rounded-2xl border border-gold-glow bg-[#0D0D0F] overflow-hidden" style={{ transitionDelay: `${i * 0.08}s` }}>
                 <div className="aspect-video bg-[#111113] flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-full bg-[rgba(201,168,76,0.9)] flex items-center justify-center shadow-[0_0_20px_rgba(201,168,76,0.4)]">
+                  <div className="w-14 h-14 rounded-full bg-[rgba(245,196,94,0.9)] flex items-center justify-center shadow-[0_0_20px_rgba(245,196,94,0.4)]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0A0A0A"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                   </div>
                 </div>
@@ -448,7 +448,7 @@ export default function ApplyPage() {
             {FAQS.map((faq, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-gold-glow bg-[#0D0D0F] overflow-hidden hover:border-[rgba(201,168,76,0.35)] transition-colors duration-300"
+                className="rounded-xl border border-gold-glow bg-[#0D0D0F] overflow-hidden hover:border-[rgba(245,196,94,0.35)] transition-colors duration-300"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -461,7 +461,7 @@ export default function ApplyPage() {
                     height="20"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#C9A84C"
+                    stroke="#F5C45E"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -503,7 +503,7 @@ export default function ApplyPage() {
       <footer className="py-10 border-t border-gold-glow">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
-            <img src={LOGO_URL} alt="After Hours" className="h-10 w-auto rounded-lg" />
+            <img src={LOGO_URL} alt="After Hours Podcast" className="h-10 w-auto" />
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
               <a href="#" className="text-[#999999] hover:text-white transition-colors">YouTube</a>
               <a href="#" className="text-[#999999] hover:text-white transition-colors">Spotify</a>

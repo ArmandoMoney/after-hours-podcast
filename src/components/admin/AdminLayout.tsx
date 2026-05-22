@@ -5,11 +5,11 @@ import AdminDashboard from './AdminDashboard';
 
 export default function AdminLayout() {
   const [authenticated, setAuthenticated] = useState(
-    () => sessionStorage.getItem('ceo_admin_auth') === 'true'
+    () => sessionStorage.getItem('ah_admin_auth') === 'true'
   );
 
   function handleSignOut() {
-    sessionStorage.removeItem('ceo_admin_auth');
+    sessionStorage.removeItem('ah_admin_auth');
     setAuthenticated(false);
   }
 

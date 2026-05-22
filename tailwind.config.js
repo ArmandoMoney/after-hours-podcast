@@ -14,7 +14,7 @@ export default {
           border: '#2A2A2A',
           body: '#E5E5E5',
           muted: '#ABABAB',
-          gold: '#C9A84C',
+          amber: '#F5C45E',
         },
       },
       borderRadius: {

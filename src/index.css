@@ -105,7 +105,7 @@
   }
 
   .gold-shimmer {
-    background: linear-gradient(90deg, #C9A84C 0%, #E8D48B 50%, #C9A84C 100%);
+    background: linear-gradient(90deg, #F5C45E 0%, #FFD98E 50%, #F5C45E 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -144,19 +144,19 @@
   }
 
   .text-gradient-gold {
-    background: linear-gradient(135deg, #C9A84C, #E8D48B);
+    background: linear-gradient(135deg, #F5C45E, #FFD98E);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .border-gold-glow {
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    box-shadow: 0 0 15px rgba(201, 168, 76, 0.05), inset 0 0 15px rgba(201, 168, 76, 0.02);
+    border: 1px solid rgba(245, 196, 94, 0.2);
+    box-shadow: 0 0 15px rgba(245, 196, 94, 0.05), inset 0 0 15px rgba(245, 196, 94, 0.02);
   }
 
   .btn-gold {
-    background: linear-gradient(135deg, #C9A84C, #E8D48B);
+    background: linear-gradient(135deg, #F5C45E, #FFD98E);
     color: #0A0A0A;
     font-weight: 700;
     text-transform: uppercase;
@@ -173,7 +173,7 @@
   }
 
   .btn-outline-gold {
-    border: 1px solid #C9A84C;
+    border: 1px solid #F5C45E;
     color: #FFFFFF;
     font-weight: 600;
     text-transform: uppercase;
@@ -182,8 +182,8 @@
     transition: all 0.2s ease;
   }
   .btn-outline-gold:hover {
-    border-color: #E8D48B;
-    background: rgba(201, 168, 76, 0.05);
+    border-color: #FFD98E;
+    background: rgba(245, 196, 94, 0.05);
   }
 
   .faq-answer {
@@ -238,7 +238,7 @@
 }
 .btn-gold:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 25px rgba(201, 168, 76, 0.35);
+  box-shadow: 0 0 25px rgba(245, 196, 94, 0.35);
 }
 
 /* Card lift on hover */
@@ -295,8 +295,8 @@
 
   .guest-portrait:hover {
     filter: grayscale(0) brightness(1);
-    border-color: rgba(201, 168, 76, 0.4);
-    box-shadow: 0 0 15px rgba(201, 168, 76, 0.15);
+    border-color: rgba(245, 196, 94, 0.4);
+    box-shadow: 0 0 15px rgba(245, 196, 94, 0.15);
   }
 }
 
