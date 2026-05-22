@@ -9,6 +9,7 @@ interface Submission {
   email: string;
   phone: string;
   business_name: string;
+  instagram: string;
   package_interest: string;
   consent: boolean;
   submitted_at: string;
@@ -96,7 +97,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
     let query = supabase.from('applications').select('*', { count: 'exact' });
 
     if (search) {
-      query = query.or(`full_name.ilike.%${search}%,email.ilike.%${search}%,phone.ilike.%${search}%,business_name.ilike.%${search}%,package_interest.ilike.%${search}%`);
+      query = query.or(`full_name.ilike.%${search}%,email.ilike.%${search}%,phone.ilike.%${search}%,business_name.ilike.%${search}%,instagram.ilike.%${search}%,package_interest.ilike.%${search}%`);
     }
     if (statusFilter) query = query.eq('status', statusFilter);
     if (packageFilter) query = query.eq('package_interest', packageFilter);
@@ -265,6 +266,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
                 </th>
                 <th className="pb-3 pr-4 font-medium">Email</th>
                 <th className="pb-3 pr-4 font-medium">Phone</th>
+                <th className="pb-3 pr-4 font-medium">IG</th>
                 <th className="pb-3 pr-4 font-medium">Business</th>
                 <th className="pb-3 pr-4 font-medium cursor-pointer select-none" onClick={() => handleSort('package_interest')}>
                   Package<SortArrow field="package_interest" />
@@ -375,6 +377,11 @@ function TableRow({
         <td className="py-3 pr-4 text-white">{submission.full_name}</td>
         <td className="py-3 pr-4 text-[#E5E5E5]">{submission.email}</td>
         <td className="py-3 pr-4 text-[#E5E5E5]">{submission.phone}</td>
+        <td className="py-3 pr-4 text-[#E5E5E5]">
+          {submission.instagram ? (
+            <a href={`https://instagram.com/${submission.instagram}`} target="_blank" rel="noopener noreferrer" className="text-[#F5C45E] hover:text-white transition-colors" onClick={(e) => e.stopPropagation()}>@{submission.instagram}</a>
+          ) : '—'}
+        </td>
         <td className="py-3 pr-4 text-[#E5E5E5] max-w-[200px] truncate">{submission.business_name}</td>
         <td className="py-3 pr-4 text-[#E5E5E5] capitalize">{submission.package_interest}</td>
         <td className="py-3 pr-4">
@@ -386,7 +393,7 @@ function TableRow({
       </tr>
       {expanded && (
         <tr>
-          <td colSpan={7}>
+          <td colSpan={8}>
             <SubmissionDetail submission={submission} onStatusChange={onStatusChange} onDelete={onDelete} />
           </td>
         </tr>
@@ -418,6 +425,9 @@ function MobileCard({
           <StatusBadge status={submission.status} onClick={() => {}} />
         </div>
         <p className="text-sm text-[#E5E5E5]">{submission.email}</p>
+        {submission.instagram && (
+          <a href={`https://instagram.com/${submission.instagram}`} target="_blank" rel="noopener noreferrer" className="text-xs text-[#F5C45E] hover:text-white transition-colors mt-1 inline-block" onClick={(e) => e.stopPropagation()}>@{submission.instagram}</a>
+        )}
         <div className="flex items-center justify-between mt-2">
           <p className="text-xs text-[#999999] capitalize">{submission.package_interest}</p>
           <p className="text-xs text-[#999999]">{relativeTime(submission.submitted_at)}</p>

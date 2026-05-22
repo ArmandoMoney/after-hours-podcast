@@ -32,6 +32,7 @@ export default function ApplicationPage() {
     email: '',
     phone: '',
     business_name: '',
+    instagram: '',
     package_interest: '',
     consent: false,
   });
@@ -80,6 +81,7 @@ export default function ApplicationPage() {
         email: formData.email.trim(),
         phone: formData.phone,
         business_name: formData.business_name.trim(),
+        instagram: formData.instagram.trim().replace(/^@/, ''),
         package_interest: formData.package_interest,
         consent: formData.consent,
       }]);
@@ -94,6 +96,7 @@ export default function ApplicationPage() {
             email: formData.email.trim(),
             phone: formData.phone,
             business_name: formData.business_name.trim(),
+            instagram: formData.instagram.trim().replace(/^@/, ''),
             package_interest: formData.package_interest,
           }),
         });
@@ -161,6 +164,11 @@ export default function ApplicationPage() {
           <div>
             <label className="block text-sm font-medium mb-2">Business / Brand Name <span className="text-[#F5C45E]">*</span></label>
             <input type="text" name="business_name" value={formData.business_name} onChange={handleChange} placeholder="Your company or brand" className="w-full px-4 py-3 rounded-xl bg-[#141414] border border-[#2A2A2A] text-white placeholder-[#666] focus:outline-none focus:border-[#F5C45E]/50 focus:shadow-[0_0_10px_rgba(245,196,94,0.1)] transition-all" />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2">Instagram Username</label>
+            <input type="text" name="instagram" value={formData.instagram} onChange={(e) => setFormData((prev) => ({ ...prev, instagram: e.target.value.replace(/^@/, '') }))} placeholder="@username" className="w-full px-4 py-3 rounded-xl bg-[#141414] border border-[#2A2A2A] text-white placeholder-[#666] focus:outline-none focus:border-[#F5C45E]/50 focus:shadow-[0_0_10px_rgba(245,196,94,0.1)] transition-all" />
           </div>
 
           <div>

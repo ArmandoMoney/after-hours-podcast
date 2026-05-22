@@ -7,6 +7,7 @@ interface Submission {
   email: string;
   phone: string;
   business_name: string;
+  instagram: string;
   package_interest: string;
   consent: boolean;
   submitted_at: string;
@@ -95,6 +96,25 @@ export default function SubmissionDetail({ submission, onStatusChange, onDelete 
             >
               {copiedField === 'phone' ? 'Copied!' : 'Copy'}
             </button>
+          </div>
+        </div>
+        <div>
+          <p className="text-xs text-[#999999] uppercase tracking-wider mb-1">Instagram</p>
+          <div className="flex items-center gap-2">
+            {submission.instagram ? (
+              <>
+                <a href={`https://instagram.com/${submission.instagram}`} target="_blank" rel="noopener noreferrer" className="text-[#F5C45E] hover:text-white transition-colors">@{submission.instagram}</a>
+                <button
+                  onClick={() => copyToClipboard(submission.instagram, 'instagram')}
+                  className="text-xs px-2 py-1 rounded-lg border border-[rgba(245,196,94,0.15)] text-[#999999]
+                             hover:text-[#F5C45E] hover:border-[#F5C45E]/30 transition-colors"
+                >
+                  {copiedField === 'instagram' ? 'Copied!' : 'Copy'}
+                </button>
+              </>
+            ) : (
+              <p className="text-[#999999]">Not provided</p>
+            )}
           </div>
         </div>
         <div>
