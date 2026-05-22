@@ -84,6 +84,23 @@ export default function ApplicationPage() {
         consent: formData.consent,
       }]);
       if (dbError) throw dbError;
+      // Send to n8n webhook
+      try {
+        await fetch('https://mgxossarmy.app.n8n.cloud/webhook/after-hours-podcast-submissions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            full_name: formData.full_name.trim(),
+            email: formData.email.trim(),
+            phone: formData.phone,
+            business_name: formData.business_name.trim(),
+            package_interest: formData.package_interest,
+          }),
+        });
+      } catch (webhookErr) {
+        // Webhook failure shouldn't block submission
+        console.warn('Webhook notification failed:', webhookErr);
+      }
       setSubmitted(true);
       window.scrollTo(0, 0);
     } catch {
