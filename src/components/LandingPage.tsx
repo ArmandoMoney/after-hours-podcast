@@ -146,7 +146,7 @@ export default function LandingPage({ onApply }: LandingPageProps) {
       </section>
 
       {/* BE A GUEST */}
-      <section className="py-12 sm:py-20 border-t border-gold-glow relative overflow-hidden">
+      <section className="py-12 sm:py-20 border-t border-gold-glow relative">
         <div className="absolute inset-0 bg-gradient-to-br from-[rgba(245,196,94,0.05)] via-transparent to-[rgba(232,212,139,0.05)]" />
 
         <div className="relative container mx-auto px-4 sm:px-6">
