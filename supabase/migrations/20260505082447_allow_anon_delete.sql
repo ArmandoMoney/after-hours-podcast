@@ -1,0 +1,1 @@
+CREATE POLICY "Allow anon delete" ON submissions FOR DELETE TO anon USING (true);
