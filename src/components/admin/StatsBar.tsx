@@ -18,10 +18,10 @@ export default function StatsBar({ total, newCount, contacted, notInterested }: 
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-5"
+          className="bg-[#141414] border border-[rgba(245,196,94,0.12)] rounded-xl p-5 hover:border-[rgba(245,196,94,0.25)] transition-colors"
         >
-          <p className="text-2xl font-bold text-white">{stat.value}</p>
-          <p className="text-sm text-[#999999] mt-1">{stat.label}</p>
+          <p className="text-2xl font-display text-[#F5C45E]">{stat.value}</p>
+          <p className="text-sm text-[#999999] mt-1 uppercase tracking-wider">{stat.label}</p>
         </div>
       ))}
     </div>

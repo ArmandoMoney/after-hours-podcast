@@ -56,7 +56,7 @@ export default function SubmissionDetail({ submission, onStatusChange, onDelete 
   });
 
   return (
-    <div className="bg-[#0F0F0F] border-t border-[#2A2A2A] px-6 py-5 space-y-5">
+    <div className="bg-[#0F0F0F] border-t border-[rgba(245,196,94,0.1)] px-6 py-5 space-y-5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <p className="text-xs text-[#999999] uppercase tracking-wider mb-1">Full Name</p>
@@ -64,8 +64,8 @@ export default function SubmissionDetail({ submission, onStatusChange, onDelete 
             <p className="text-white">{submission.full_name}</p>
             <button
               onClick={() => copyToClipboard(submission.full_name, 'name')}
-              className="text-xs px-2 py-1 rounded-lg border border-[#2A2A2A] text-[#999999]
-                         hover:text-white hover:border-white/30 transition-colors"
+              className="text-xs px-2 py-1 rounded-lg border border-[rgba(245,196,94,0.15)] text-[#999999]
+                         hover:text-[#F5C45E] hover:border-[#F5C45E]/30 transition-colors"
             >
               {copiedField === 'name' ? 'Copied!' : 'Copy'}
             </button>
@@ -77,8 +77,8 @@ export default function SubmissionDetail({ submission, onStatusChange, onDelete 
             <p className="text-white">{submission.email}</p>
             <button
               onClick={() => copyToClipboard(submission.email, 'email')}
-              className="text-xs px-2 py-1 rounded-lg border border-[#2A2A2A] text-[#999999]
-                         hover:text-white hover:border-white/30 transition-colors"
+              className="text-xs px-2 py-1 rounded-lg border border-[rgba(245,196,94,0.15)] text-[#999999]
+                         hover:text-[#F5C45E] hover:border-[#F5C45E]/30 transition-colors"
             >
               {copiedField === 'email' ? 'Copied!' : 'Copy'}
             </button>
@@ -90,8 +90,8 @@ export default function SubmissionDetail({ submission, onStatusChange, onDelete 
             <p className="text-white">{submission.phone}</p>
             <button
               onClick={() => copyToClipboard(submission.phone, 'phone')}
-              className="text-xs px-2 py-1 rounded-lg border border-[#2A2A2A] text-[#999999]
-                         hover:text-white hover:border-white/30 transition-colors"
+              className="text-xs px-2 py-1 rounded-lg border border-[rgba(245,196,94,0.15)] text-[#999999]
+                         hover:text-[#F5C45E] hover:border-[#F5C45E]/30 transition-colors"
             >
               {copiedField === 'phone' ? 'Copied!' : 'Copy'}
             </button>
@@ -117,8 +117,8 @@ export default function SubmissionDetail({ submission, onStatusChange, onDelete 
           <select
             value={submission.status}
             onChange={(e) => handleStatusChange(e.target.value)}
-            className="bg-[#141414] border border-[#2A2A2A] rounded-lg px-3 py-1.5 text-white text-sm
-                       focus:outline-none focus:ring-2 focus:ring-white/20"
+            className="bg-[#141414] border border-[rgba(245,196,94,0.15)] rounded-lg px-3 py-1.5 text-white text-sm
+                       focus:outline-none focus:ring-2 focus:ring-[#F5C45E]/30"
           >
             {STATUS_OPTIONS.map((s) => (
               <option key={s} value={s}>{STATUS_LABELS[s]}</option>

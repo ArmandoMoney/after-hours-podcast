@@ -54,7 +54,7 @@ function relativeTime(dateStr: string): string {
 
 function StatusBadge({ status, onClick }: { status: string; onClick: () => void }) {
   const colors: Record<string, string> = {
-    new: 'border-white/30 text-white bg-white/5',
+    new: 'border-[#F5C45E]/30 text-[#F5C45E] bg-[#F5C45E]/5',
     contacted: 'border-green-500/30 text-green-400 bg-green-500/5',
     not_interested: 'border-[#2A2A2A] text-[#666666] bg-[#141414]',
   };
@@ -192,7 +192,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white">
       {/* Header */}
-      <header className="border-b border-[#2A2A2A] px-4 md:px-8 py-4">
+      <header className="border-b border-[rgba(245,196,94,0.15)] bg-gradient-to-r from-[rgba(245,196,94,0.03)] to-transparent px-4 md:px-8 py-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center gap-4">
             <img
@@ -200,12 +200,12 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
               alt="After Hours Podcast"
               className="h-10 sm:h-12 object-contain"
             />
-            <h1 className="text-xl font-semibold tracking-wide">After Hours Dashboard</h1>
+            <h1 className="text-2xl font-display tracking-wider text-gradient-gold">After Hours Dashboard</h1>
           </div>
           <button
             onClick={onSignOut}
-            className="px-4 py-2 text-sm rounded-xl border border-[#2A2A2A] text-[#E5E5E5]
-                       hover:border-white/30 hover:text-white transition-colors"
+            className="px-4 py-2 text-sm rounded-xl border border-[rgba(245,196,94,0.2)] text-[#E5E5E5]
+                       hover:border-[#F5C45E]/40 hover:text-[#F5C45E] transition-colors"
           >
             Sign Out
           </button>
@@ -228,14 +228,14 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
             placeholder="Search by name, email, phone, or business..."
             onChange={(e) => handleSearchChange(e.target.value)}
             className="flex-1 px-4 py-3 bg-[#141414] border border-[#2A2A2A] rounded-xl text-white
-                       placeholder:text-[#999999] focus:outline-none focus:ring-2 focus:ring-white/20
-                       focus:border-transparent transition-all duration-200"
+                       placeholder:text-[#999999] focus:outline-none focus:ring-2 focus:ring-[#F5C45E]/30
+                       focus:border-[#F5C45E]/40 transition-all duration-200"
           />
           <select
             value={statusFilter}
             onChange={(e) => { setStatusFilter(e.target.value); setPage(0); }}
             className="px-4 py-3 bg-[#141414] border border-[#2A2A2A] rounded-xl text-white
-                       focus:outline-none focus:ring-2 focus:ring-white/20"
+                       focus:outline-none focus:ring-2 focus:ring-[#F5C45E]/30"
           >
             <option value="">All Statuses</option>
             {STATUS_OPTIONS.map((s) => (
@@ -246,7 +246,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
             value={packageFilter}
             onChange={(e) => { setPackageFilter(e.target.value); setPage(0); }}
             className="px-4 py-3 bg-[#141414] border border-[#2A2A2A] rounded-xl text-white
-                       focus:outline-none focus:ring-2 focus:ring-white/20"
+                       focus:outline-none focus:ring-2 focus:ring-[#F5C45E]/30"
           >
             <option value="">All Packages</option>
             {PACKAGE_OPTIONS.map((p) => (
@@ -259,7 +259,7 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
         <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-[#2A2A2A] text-[#999999] text-left">
+              <tr className="border-b border-[rgba(245,196,94,0.15)] text-[#F5C45E]/60 text-left">
                 <th className="pb-3 pr-4 font-medium cursor-pointer select-none" onClick={() => handleSort('full_name')}>
                   Name<SortArrow field="full_name" />
                 </th>
@@ -326,19 +326,19 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
             <button
               onClick={() => setPage(Math.max(0, page - 1))}
               disabled={page === 0}
-              className="px-4 py-2 text-sm rounded-xl border border-[#2A2A2A] text-[#E5E5E5]
-                         hover:border-white/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="px-4 py-2 text-sm rounded-xl border border-[rgba(245,196,94,0.2)] text-[#E5E5E5]
+                         hover:border-[#F5C45E]/40 hover:text-[#F5C45E] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Previous
             </button>
-            <span className="text-sm text-[#999999]">
+            <span className="text-sm text-[#F5C45E]/50">
               Page {page + 1} of {totalPages}
             </span>
             <button
               onClick={() => setPage(Math.min(totalPages - 1, page + 1))}
               disabled={page >= totalPages - 1}
-              className="px-4 py-2 text-sm rounded-xl border border-[#2A2A2A] text-[#E5E5E5]
-                         hover:border-white/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="px-4 py-2 text-sm rounded-xl border border-[rgba(245,196,94,0.2)] text-[#E5E5E5]
+                         hover:border-[#F5C45E]/40 hover:text-[#F5C45E] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Next
             </button>
@@ -370,7 +370,7 @@ function TableRow({
     <>
       <tr
         onClick={onToggle}
-        className="border-b border-[#1A1A1A] cursor-pointer hover:bg-[#141414] transition-colors"
+        className="border-b border-[rgba(245,196,94,0.08)] cursor-pointer hover:bg-[rgba(245,196,94,0.03)] transition-colors"
       >
         <td className="py-3 pr-4 text-white">{submission.full_name}</td>
         <td className="py-3 pr-4 text-[#E5E5E5]">{submission.email}</td>
@@ -410,7 +410,7 @@ function MobileCard({
 }) {
   return (
     <div
-      className="bg-[#141414] border border-[#2A2A2A] rounded-xl overflow-hidden"
+      className="bg-[#141414] border border-[rgba(245,196,94,0.12)] rounded-xl overflow-hidden hover:border-[rgba(245,196,94,0.25)] transition-colors"
     >
       <div onClick={onToggle} className="p-4 cursor-pointer">
         <div className="flex items-start justify-between mb-2">

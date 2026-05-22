@@ -60,8 +60,8 @@ export default function AdminLogin({ onAuth }: AdminLoginProps) {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter password"
             className="w-full px-4 py-3.5 bg-[#141414] border border-[#2A2A2A] rounded-xl text-white
-                       placeholder:text-[#999999] focus:outline-none focus:ring-2 focus:ring-white/20
-                       focus:border-transparent transition-all duration-200"
+                       placeholder:text-[#999999] focus:outline-none focus:ring-2 focus:ring-[#F5C45E]/30
+                       focus:border-[#F5C45E]/40 transition-all duration-200"
           />
           {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
         </div>
@@ -71,8 +71,8 @@ export default function AdminLogin({ onAuth }: AdminLoginProps) {
           <button
             type="submit"
             disabled={loading || !password}
-            className="w-full py-3.5 bg-white text-[#0A0A0A] font-semibold rounded-xl
-                       transition-all duration-200 hover:bg-white/90 disabled:opacity-50
+            className="w-full py-3.5 btn-gold font-semibold rounded-xl
+                       transition-all duration-200 disabled:opacity-50
                        disabled:cursor-not-allowed"
           >
             {loading ? (
