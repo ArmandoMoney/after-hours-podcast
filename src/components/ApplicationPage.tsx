@@ -114,7 +114,7 @@ export default function ApplicationPage() {
     return (
       <div className="min-h-screen bg-[#0A0A0A] text-white flex items-center justify-center px-4">
         <div className="text-center max-w-md">
-          <img src={LOGO_URL} alt="After Hours Podcast" className="h-16 w-auto mx-auto mb-6" />
+          <img src={LOGO_URL} alt="After Hours Podcast" className="h-20 sm:h-24 w-auto mx-auto mb-6" />
           <h1 className="font-display text-4xl sm:text-5xl mb-4">APPLICATION <span className="text-gradient-gold">RECEIVED</span></h1>
           <p className="text-[#999999] text-base sm:text-lg mb-8">Thank you for applying! Our team will review your application and get back to you within 48 hours.</p>
           <a href="/" className="btn-gold inline-flex items-center justify-center gap-2 px-8 py-3 text-base">BACK TO HOME</a>
@@ -135,7 +135,7 @@ export default function ApplicationPage() {
       <div className="container mx-auto px-4 sm:px-6 pt-16 pb-12 sm:pb-20 max-w-2xl">
 
         <div className="text-center mb-10">
-          <img src={LOGO_URL} alt="After Hours Podcast" className="h-12 sm:h-16 w-auto mx-auto mb-6" />
+          <img src={LOGO_URL} alt="After Hours Podcast" className="h-20 sm:h-24 w-auto mx-auto mb-6" />
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             PODCAST <span className="text-gradient-gold">APPLICATION FORM</span>
           </h1>

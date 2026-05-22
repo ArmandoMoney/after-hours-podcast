@@ -196,9 +196,9 @@ export default function AdminDashboard({ onSignOut }: AdminDashboardProps) {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center gap-4">
             <img
-              src="https://qcmkvxym51.ufs.sh/f/dwov31m0cIp82UZKkVuje8HKUVFmQABviX9nuTsJazGrcdLg"
-              alt="After Hours"
-              className="h-14 rounded-xl object-contain"
+              src="https://9tuqy0mn23.ufs.sh/f/Ck56V993keuOTsuJByNp3Mmv4ukxatX8qZAVOCbsfeQj0FW7"
+              alt="After Hours Podcast"
+              className="h-10 sm:h-12 object-contain"
             />
             <h1 className="text-xl font-semibold tracking-wide">After Hours Dashboard</h1>
           </div>

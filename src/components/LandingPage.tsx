@@ -260,7 +260,7 @@ export default function LandingPage({ onApply }: LandingPageProps) {
         <div className="container mx-auto px-4 sm:px-6">
 
           <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
-            <img src={LOGO_URL} alt="After Hours Podcast" className="h-10 w-auto" />
+            <img src={LOGO_URL} alt="After Hours Podcast" className="h-14 sm:h-16 w-auto" />
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#999999]">
               <a href="/privacy" className="hover:text-white transition-colors">Privacy</a>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

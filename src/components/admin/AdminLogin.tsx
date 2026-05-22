@@ -44,7 +44,7 @@ export default function AdminLogin({ onAuth }: AdminLoginProps) {
         <img
           src="https://9tuqy0mn23.ufs.sh/f/Ck56V993keuOTsuJByNp3Mmv4ukxatX8qZAVOCbsfeQj0FW7"
           alt="After Hours Podcast"
-          className="h-20 mb-10 object-contain opacity-0 anim-logo-fast"
+          className="h-24 sm:h-28 mb-10 object-contain opacity-0 anim-logo-fast"
         />
         <h1
           className="text-2xl font-semibold text-white tracking-wide mb-8 opacity-0 anim-heading-fast"
