@@ -152,7 +152,7 @@ export default function LandingPage({ onApply }: LandingPageProps) {
         <div className="relative container mx-auto px-4 sm:px-6">
           <div className="reveal flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto">
             <div className="w-44 sm:w-52 md:w-56 shrink-0 flex items-center justify-center">
-              <img src={FRESH_IMAGE_URL} alt="After Hours podcast" className="w-full h-auto max-h-44 sm:max-h-48 md:max-h-56 object-contain rounded-full shadow-[0_0_20px_rgba(245,196,94,0.3)]" />
+              <img src={FRESH_IMAGE_URL} alt="After Hours podcast" className="w-full h-auto max-h-44 sm:max-h-48 md:max-h-56 object-contain rounded-full drop-shadow-[0_0_20px_rgba(245,196,94,0.3)]" style={{ transform: 'translateZ(0)' }} />
             </div>
 
             <div className="text-center md:text-left flex-1">
