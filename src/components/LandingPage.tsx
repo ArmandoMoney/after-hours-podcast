@@ -126,7 +126,7 @@ export default function LandingPage({ onApply }: LandingPageProps) {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center py-12">
-          <img src={LOGO_URL} alt="After Hours Podcast" className="h-44 sm:h-56 md:h-72 lg:h-80 w-auto mx-auto mb-4 animate-float relative left-0 sm:left-[20px]" style={{ animationDelay: '0.1s' }} />
+          <img src={LOGO_URL} alt="After Hours Podcast" className="h-44 sm:h-56 md:h-72 lg:h-80 w-auto mx-auto mb-4 animate-float relative left-[10px] sm:left-[20px]" style={{ animationDelay: '0.1s' }} />
           <p className="text-[#999999] text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
             Unfiltered conversations with the world's most interesting people. New episodes daily.
           </p>
@@ -152,7 +152,7 @@ export default function LandingPage({ onApply }: LandingPageProps) {
         <div className="relative container mx-auto px-4 sm:px-6">
           <div className="reveal flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto">
             <div className="w-44 sm:w-52 md:w-56 shrink-0 flex items-center justify-center">
-              <img src={FRESH_IMAGE_URL} alt="After Hours podcast" className="w-full h-auto max-h-44 sm:max-h-48 md:max-h-56 object-contain rounded-full drop-shadow-[0_0_20px_rgba(245,196,94,0.3)]" />
+              <img src={FRESH_IMAGE_URL} alt="After Hours podcast" className="w-full h-auto max-h-44 sm:max-h-48 md:max-h-56 object-contain rounded-full shadow-[0_0_20px_rgba(245,196,94,0.3)]" />
             </div>
 
             <div className="text-center md:text-left flex-1">
