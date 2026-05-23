@@ -99,6 +99,21 @@ const PACKAGES = [
       'Feature you/your business in the mastermind with a warm intro',
     ],
   },
+  {
+    name: 'Elite',
+    price: '$50,000',
+    popular: false,
+    features: [
+      'Everything in Premium, PLUS:',
+      'Custom integrated sponsor segment',
+      'Dedicated social media campaign across all platforms',
+      'Brand placement throughout episode (verbal + visual)',
+      'Co-branded content opportunity',
+      'VIP experience at live events',
+      'Quarterly strategy session with Fresh',
+      'Exclusive long-term partnership opportunities',
+    ],
+  },
 ];
 
 const TESTIMONIALS = [
@@ -353,10 +368,10 @@ export default function ApplyPage() {
               SPONSORSHIP <span className="text-gradient-gold">PACKAGES</span>
             </h2>
             <p className="text-[#999999] text-base sm:text-lg">
-              Pick the package that fits your goals.
+              Choose the package that aligns with your goals and amplify your brand with After Hours Podcast.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {PACKAGES.map((pkg, i) => (
               <div
                 key={pkg.name}
@@ -402,6 +417,9 @@ export default function ApplyPage() {
             <p className="inline-flex items-center gap-2 text-[#F5C45E] text-sm sm:text-base font-semibold">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
               PREMIUM GUARANTEE: If your clips don't hit 1,000,000+ total views, we keep distributing at no extra cost until they do.
+            </p>
+            <p className="text-[#999999] text-sm mt-3">
+              Custom packages available upon request. Let's build something extraordinary together.
             </p>
           </div>
         </div>

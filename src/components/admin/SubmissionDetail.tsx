@@ -30,6 +30,7 @@ const STATUS_LABELS: Record<string, string> = {
 const PACKAGE_LABELS: Record<string, string> = {
   standard: 'Standard - $12,500',
   premium: 'Premium - $15,000',
+  elite: 'Elite - $50,000',
 };
 
 export default function SubmissionDetail({ submission, onStatusChange, onDelete }: SubmissionDetailProps) {

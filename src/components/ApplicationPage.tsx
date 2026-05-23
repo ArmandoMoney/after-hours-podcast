@@ -26,6 +26,17 @@ const PREMIUM_FEATURES = [
   'Feature you/your business in the mastermind with a warm intro',
 ];
 
+const ELITE_FEATURES = [
+  'Everything in Premium, PLUS:',
+  'Custom integrated sponsor segment',
+  'Dedicated social media campaign across all platforms',
+  'Brand placement throughout episode (verbal + visual)',
+  'Co-branded content opportunity',
+  'VIP experience at live events',
+  'Quarterly strategy session with Fresh',
+  'Exclusive long-term partnership opportunities',
+];
+
 export default function ApplicationPage() {
   const [formData, setFormData] = useState({
     full_name: '',
@@ -173,7 +184,7 @@ export default function ApplicationPage() {
 
           <div>
             <label className="block text-sm font-medium mb-4">Package Interest <span className="text-[#F5C45E]">*</span></label>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
               <button type="button" onClick={() => selectPackage('standard')} className={`text-left rounded-2xl border p-5 transition-all duration-300 ${formData.package_interest === 'standard' ? 'border-[#F5C45E] shadow-[0_0_20px_rgba(245,196,94,0.2)]' : 'border-[rgba(245,196,94,0.15)] hover:border-[rgba(245,196,94,0.3)]'} bg-[#0D0D0F]`}>
                 <p className="font-display text-xl mb-1">STANDARD</p>
@@ -208,6 +219,19 @@ export default function ApplicationPage() {
                   </ul>
                 </button>
               </div>
+
+              <button type="button" onClick={() => selectPackage('elite')} className={`text-left rounded-2xl border p-5 transition-all duration-300 ${formData.package_interest === 'elite' ? 'border-[#F5C45E] shadow-[0_0_20px_rgba(245,196,94,0.2)]' : 'border-[rgba(245,196,94,0.15)] hover:border-[rgba(245,196,94,0.3)]'} bg-[#0D0D0F]`}>
+                <p className="font-display text-xl mb-1">ELITE</p>
+                <p className="font-display text-2xl text-gradient-gold mb-4">$50,000</p>
+                <ul className="space-y-2">
+                  {ELITE_FEATURES.map((f, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs text-[#CCCCCC]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F5C45E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </button>
 
             </div>
           </div>

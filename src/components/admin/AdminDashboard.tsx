@@ -23,10 +23,11 @@ interface AdminDashboardProps {
 type SortField = 'full_name' | 'package_interest' | 'submitted_at' | 'status';
 type SortDir = 'asc' | 'desc';
 
-const PACKAGE_OPTIONS = ['standard', 'premium'];
+const PACKAGE_OPTIONS = ['standard', 'premium', 'elite'];
 const PACKAGE_LABELS: Record<string, string> = {
   standard: 'Standard - $12,500',
   premium: 'Premium - $15,000',
+  elite: 'Elite - $50,000',
 };
 
 const STATUS_OPTIONS = ['new', 'contacted', 'not_interested'];
